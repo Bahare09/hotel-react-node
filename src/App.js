@@ -1,5 +1,4 @@
 import Table from "./Table";
-import Input from "./Input";
 import Search from "./search";
 import Header from "./Header";
 import "./App.css";
@@ -10,9 +9,8 @@ function App() {
     <div className="App">
       <Header />
       <div className="container">
-        <Input />
         <Search />
-        <Table bookings={bookings} />
+        <Table />
       </div>
     </div>
   );
