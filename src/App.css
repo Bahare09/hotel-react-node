@@ -64,7 +64,7 @@ h1 {
 .form-container input[type="text"]::placeholder,
 .form-container input[type="email"]::placeholder,
 .form-container input[type="date"]::placeholder {
-  color: #999;
+  color: #d2c3c3;
 }
 
 @media (min-width: 768px) {
