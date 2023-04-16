@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-const Search = () => {
+const Search = ({ search }) => {
   const [date, setDate] = useState("");
   const [term, setTerm] = useState("");
-  const [data, setData] = useState([]);
-  const handleSubmit = () => {
-    fetch(
-      `https://hotel-node3.onrender.com/bookings/search?date=${date}&term=${term}`
-    )
-      .then((response) => response.json())
-      .then((data) => setData(data))
-      .catch((error) => console.error(error));
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    search({ term, date });
   };
 
   return (
@@ -36,7 +33,6 @@ const Search = () => {
         />
         <button type="submit">Search</button>
       </form>
-      <table bookings={data} />
     </div>
   );
 };

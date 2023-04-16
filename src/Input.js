@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Input = () => {
+const Input = ({ addCustomer }) => {
   const [title, setTitle] = useState("");
   const [firstName, setFirstName] = useState("");
   const [surname, setSurname] = useState("");
@@ -9,7 +9,7 @@ const Input = () => {
   const [checkOutDate, setCheckOutDate] = useState("");
   const [roomId, setRoomId] = useState("");
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     const newBooking = {
@@ -21,19 +21,7 @@ const Input = () => {
       checkOutDate,
       roomId,
     };
-
-    // Send a POST request to the API with the input value
-    const response = await fetch("https://hotel-node3.onrender.com/bookings", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newBooking),
-    });
-
-    // Handle the response
-    const data = await response.json();
-    console.log(data);
+    addCustomer(newBooking);
   };
 
   return (
