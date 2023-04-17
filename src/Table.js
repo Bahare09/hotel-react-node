@@ -19,6 +19,14 @@ const Table = () => {
       .then((data) => setData(data))
       .catch((error) => console.error(error));
   };
+
+  const handlerRefreshClick = () => {
+    fetch("https://hotel-node3.onrender.com/bookings")
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch((error) => console.error(error));
+  };
+
   const addCustomer = async (input) => {
     // Send a POST request to the API with the input value
     const response = await fetch("https://hotel-node3.onrender.com/bookings", {
@@ -28,7 +36,6 @@ const Table = () => {
       },
       body: JSON.stringify(input),
     });
-
     // Handle the response
     const data = await response.json();
     setData(data);
@@ -46,6 +53,7 @@ const Table = () => {
     <>
       <Input addCustomer={addCustomer} />
       <Search search={search} />
+      <button onClick={() => handlerRefreshClick()}>Refresh Page</button>
       <table className="table table-striped">
         <thead>
           <tr>
