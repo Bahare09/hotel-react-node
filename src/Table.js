@@ -42,7 +42,7 @@ const Table = () => {
   };
 
   const addCustomer = async (input) => {
-    // Send a POST request to the API with the input value
+    // Send a POST request to the API with the input  value
     const response = await fetch("https://hotel-node3.onrender.com/bookings", {
       method: "POST",
       headers: {
@@ -50,7 +50,7 @@ const Table = () => {
       },
       body: JSON.stringify(input),
     });
-    // Handle the response
+    // Handle the response:
     const data = await response.json();
     setData(data);
   };
